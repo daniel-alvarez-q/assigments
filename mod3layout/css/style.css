@@ -17,28 +17,31 @@ body{
 
 .navbar-header .navbar-brand{
     color:#000;
+    font-weight: bolder;
+    padding-left: 30px;
+    font-size: 1.8em;
 }
 
 .navbar-header .navbar-brand:hover{
     color:#000;
 }
 
-.navbar-header button.navbar-toggle, .navbar-toggle .icon-bar{
+.navbar-default button.navbar-toggle, .navbar-toggle .icon-bar{
     border: 1px solid #000;
 }
 
-.navbar-header button.navbar-toggle:focus{
-    border: 2px solid #DCDCDC;
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
+    border: 1px solid #DCDCDC;
     background-color: #999999;;
 }
 
-.navbar-toggle .icon-bar:focus{
+.navbar-toggle .icon-bar:focus, .navbar-toggle .icon-bar:active{
     border: 1px solid #DCDCDC;
 }
 
-
 #dropdown-menu{
     padding: 0;
+    border:0;
 }
 
 #dropdown-menu ul{
@@ -46,7 +49,12 @@ body{
 }
 
 #nav-list li{
-    border: 1px solid #000;
+    border: 2px solid #000;
+    margin: 0px;
+}
+
+#nav-list li:nth-child(1){
+    border-top:4px solid #000;
 }
 
 #nav-list li a{
@@ -70,20 +78,29 @@ body{
 .content-box > h2{
     text-transform: capitalize;
     font-weight: bold;
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
 .content-box > p{
     padding: 0px 15px 0px;
     font-weight: 800;
-    font-size: 1.4em;
+    font-size: 1.2em;
 }
 
 @media(max-width:768px){
     .content-box{
-        width:70%;
+        width:75%;
         margin:auto;
     }
+
+    .content-box p{
+        padding: 0 30px 0;
+    }
+
+    #main-content > h1{
+        margin-bottom: 15px;
+    }
+    
 }
 
 
