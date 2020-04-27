@@ -9,10 +9,19 @@
     function check ($scope){
         $scope.list;
         $scope.message;
+        $scope.status = {
+            "color" : "black",
+        };
 
         $scope.checkInput = function (){
             if($scope.list === undefined || $scope.list=== ""){
                 $scope.message = "Please enter data first, don't try to fool me";
+                $scope.status = {
+                    "color" : "red",
+                }
+                $scope.inputStatus = {
+                    "border-color" : "red",
+                }
             }else{
                 $scope.processInput();
             };
@@ -37,9 +46,15 @@
                 $scope.message = "Too much! Take it easy";
             }else{
                 $scope.message = "Enjoy your meal!";
+                };
+            $scope.inputStatus = {
+                "border-color" : "green",
+            };
+            $scope.status = {
+                "color" : "green",
             };
         };
-    }
+    } 
 
 })();
 
