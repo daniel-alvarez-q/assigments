@@ -4,14 +4,15 @@
     angular.module("lunchReview", [])
     .controller("inputReview", check);
 
-    check.$inject = ["$scope"];
+    check.$inject = ["$scope", "$filter"];
 
-    function check ($scope){
+    function check ($scope, $filter){
         $scope.list;
         $scope.message;
         $scope.status = {
             "color" : "black",
         };
+
 
         $scope.checkInput = function (){
             if($scope.list === undefined || $scope.list=== ""){
