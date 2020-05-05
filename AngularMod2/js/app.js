@@ -4,7 +4,7 @@
 angular.module('ShoppingListCheckOff', [])
 .controller('ToBuyController', ToBuyController)
 .controller('AlreadyBoughtController', AlreadyBoughtController)
-.service('ShoppingListCheckOffService', ShoppingListCheckOffService);
+.factory('ShoppingListCheckOffService', ShoppingListCheckOffService);
 
 ToBuyController.$inject = ['ShoppingListCheckOffService'];
 
@@ -12,15 +12,20 @@ AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
 
 function ToBuyController (ShoppingListCheckOffService){
     var tb = this;
-    tb.items = ShoppingListCheckOffService.accessTbArray();
+    var sl = ShoppingListCheckOffService;
 
-    tb.broughtItem = function (i){
-        ShoppingListCheckOffService.pushIntoAbArray(tb.items[i].name, tb.items[i].quantity);
-        ShoppingListCheckOffService.removeFromTbArray(i);
+    console.log(sl);
+    tb.items = sl.tbArray;
+    tb.boughtItem = function (i){
+        var item = {};
+        item.name = tb.items[i].name;
+        item.quantity = tb.items[i].quantity;
+        sl.abArray.push(item);
+        tb.items.splice(i,1);
     }
 
     tb.listStatus = function (){
-        if (tb.items.length == 0){
+        if(tb.items.length == 0){
             return true;
         }else{
             return false;
@@ -29,22 +34,25 @@ function ToBuyController (ShoppingListCheckOffService){
 };
 
 function AlreadyBoughtController (ShoppingListCheckOffService){
+    var sp = ShoppingListCheckOffService;
+    console.log(sp);
     var ab = this;
-
-    ab.items = ShoppingListCheckOffService.accessAbArray();
-
+    ab.items = sp.abArray;
     ab.listStatus = function (){
-        if(ab.items.length === 0){
+        if(ab.items.length == 0){
             return true;
         }else{
             return false;
         }
     }
+    
 };
 
 function ShoppingListCheckOffService(){
-    var checkoff = this;
-    var tbArray = [
+
+    var factory = {};
+
+    factory.tbArray = [
         {
             name: 'potatoes',
             quantity: 10
@@ -66,26 +74,28 @@ function ShoppingListCheckOffService(){
             quantity: 8
         }
     ];
-    var abArray = [];
+    factory.abArray = [];
 
-    checkoff.accessTbArray = function (){
+    factory.accessTbArray = function (){
         return tbArray;
     }
 
-    checkoff.accessAbArray = function (){
+    factory.accessAbArray = function (){
         return abArray;
     }
 
-    checkoff.pushIntoAbArray = function (itemName, itemQuantity){
+    factory.pushIntoAbArray = function (itemName, itemQuantity){
         var item = {};
         item.name = itemName;
         item.quantity = itemQuantity;
         abArray.push(item);
     }
 
-    checkoff.removeFromTbArray = function (index){
+    factory.removeFromTbArray = function (index){
         tbArray.splice(index, 1);
     }
+
+    return factory;
 };
 
 })();
