@@ -16,6 +16,7 @@ h1 {
   height: 100px;
   overflow: auto;
   padding: 15px;
+  border-radius: 0.5em;
 }
 
 .custom-table th.id{
