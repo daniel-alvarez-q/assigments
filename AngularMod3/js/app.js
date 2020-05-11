@@ -31,14 +31,19 @@ function FoundItemsDirectiveController (){
 function NarrowItDownController(MenuSearchService){
     var NarrowCtrl = this;
     NarrowCtrl.userInput = "";
+    NarrowCtrl.error = false;
     NarrowCtrl.searchItem = function (){
         if (NarrowCtrl.userInput === undefined || NarrowCtrl.userInput == ""){
-            console.log("Hey! This is empty")
+            NarrowCtrl.error = true;
         }else{
             var promise = MenuSearchService.getMatchedMenuItems(NarrowCtrl.userInput.toLowerCase());
             promise.then(function(response){
+                if (response.length == 0){
+                    NarrowCtrl.error = true;
+                }else{
+                    NarrowCtrl.error = false;
+                };
                 NarrowCtrl.found = response;
-                console.log(NarrowCtrl.found);
             });
         }  
     }
@@ -50,21 +55,23 @@ function NarrowItDownController(MenuSearchService){
 
 function MenuSearchService($http){
     this.getMatchedMenuItems = function (searchTerm){
-        return $http({
-                method: 'GET',
-                url: 'https://davids-restaurant.herokuapp.com/menu_items.json'
-                }).then(function(response){
-                    var filter = [];
-                    for(var item of response.data.menu_items){
-                        if (item.description.toLowerCase().includes(searchTerm)){
-                            filter.push(item);
-                        }
-                    }
-                    return filter;
-                }).catch(function(error){
-                    console.log(error);
-                });
-                };
+        var promise =  $http({
+            method: 'GET',
+            url: 'https://davids-restaurant.herokuapp.com/menu_items.json'
+            }).then(function(response){
+            var filter = [];
+            for(var item of response.data.menu_items){
+                if (item.description.toLowerCase().includes(searchTerm)){
+                    filter.push(item);
+                }
+            }
+            return filter;
+            }).catch(function(error){
+                console.log(error);
+            }); 
+        console.log(promise);
+        return promise;
+        };
 }
 
 })();
