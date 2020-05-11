@@ -12,7 +12,7 @@ MenuSearchService.$inject = ['$http'];
 function foundItems(){
     var ddo = {
         restrict : 'E',
-        templateUrl : '/templates/founddirective.html',
+        templateUrl : 'templates/founddirective.html',
         scope : {
             items : "=foundItems",
             remove: "&onRemove"
