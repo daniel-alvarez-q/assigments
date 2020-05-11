@@ -1,0 +1,29 @@
+
+    <table class="table table-sm">
+        <thead>
+          <tr class="custom-table">
+            <th class="id" scope="col">#</th>
+            <th class="name" scope="col">Name</th>
+            <th class="sn" scope="col">SN</th>
+            <th class="description" scope="col">Description</th>
+            <th class="remove" scope="col">Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in directiveCtrl.items">
+            <td>{{$index + 1}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.short_name}}</td>
+            <td>{{item.description}}</td>
+            <td>
+                <button class="btn btn-danger" ng-click="directiveCtrl.remove({index: $index});">
+                    Delete
+                </button>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+
+    <div ng-if="directiveCtrl.alert();">
+        Array is empty
+    </div>
