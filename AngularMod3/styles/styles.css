@@ -19,6 +19,10 @@ h1 {
   border-radius: 0.5em;
 }
 
+.results h3{
+  color: #8C1717;
+}
+
 .custom-table th.id{
   width:5%
 }
