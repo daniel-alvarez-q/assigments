@@ -3,7 +3,9 @@
 
 angular.module('data').service('MenuDataService', MenuDataService);
 
-function MenuDataService (){
+MenuDataService.$inject = ['$http']
+
+function MenuDataService ($http){
     var MDService = this;
 
     MDService.getAllCategories  = function (){

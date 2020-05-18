@@ -13,5 +13,11 @@ function RoutesConfig($stateProvider, $urlRouterProvider){
         url:'/',
         templateUrl:'templates/home.html',
     })
+
+    .state('categories-view', {
+        url: '/categories',
+        templateUrl: 'templates/categories.main.html',
+        controller: 'CategoriesController as CatCtrl'
+    })
 }
 })();
