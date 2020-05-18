@@ -8,6 +8,8 @@
     <body>
         <div class="container">
             <h1>Welcome!!</h1>
+            <br>
+            <ui-view></ui-view>
         </div>
 
         <script src="lib/angular.js"></script>
@@ -16,6 +18,14 @@
         <!-- Modules -->
         <script src="js/menuapp.module.js"></script>
         <script src="js/data.module.js"></script>
+
+        <!--Router-->
+        <script src="js/router/router.js"></script>
+
+        <!--Services/Components-->
         <script src="js/menudata.service.js"></script>
+        <script src="js/categories.component.js"></script>
+        <script src="js/items.component.js"></script>
+
     </body>
 </html>
