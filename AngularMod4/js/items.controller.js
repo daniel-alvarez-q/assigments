@@ -3,15 +3,12 @@
 
 angular.module('MenuApp').controller('ItemsController', ItemsController);
 
-ItemsController.$inject = ['MenuDataService', '$stateParams'];
+ItemsController.$inject = ['items'];
 
-function ItemsController(MenuDataService, $stateParams){
+function ItemsController(items){
     var ctrl = this;
-    ctrl.shortName = $stateParams.shortName;
+    ctrl.items = items.menu_items;
 
-    var getItems = MenuDataService.getItemsForCategories(ctrl.shortName).then(function (response){
-        ctrl.items = response.menu_items;
-    });
 };
 
 })();
