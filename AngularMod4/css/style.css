@@ -1,0 +1,59 @@
+#header{
+    background-image: url('/public/header.jpg');
+    background-color: tomato;
+    height: 300px;
+    position: relative;
+}
+
+#header .central-header{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#header .title-section{
+    color:white;
+    font-size: 3rem;
+    display: block;
+    position: absolute;
+    width: 97%;
+    top:100px;
+}
+
+.title-section  .subtitle{
+    border-bottom: 1px solid white;
+    width: 100%;
+}
+
+.header-links{
+    list-style: none;
+    position: relative;
+    padding: 0;
+}
+
+.header-links li{
+    display: inline-block;
+    font-size: 1rem;
+    position: absolute;
+    top:0px;
+}
+
+.header-links a{
+    color:white;
+}
+
+.header-links li:hover{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.header-links li:nth-child(2){
+    left:60px;
+}
+
+.breadcrumb{
+    background-color: white;
+    padding-left: 0;
+    border-bottom: 1px solid grey;
+    border-radius: 0;
+}

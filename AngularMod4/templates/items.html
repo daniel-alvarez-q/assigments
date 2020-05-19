@@ -1,5 +1,18 @@
-<ol>
-    <li ng-repeat="item in $ctrl.itemsList">
-        {{item.name}}
-    </li>
-</ol>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Short Name</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in $ctrl.itemsList">
+        <th scope="row">{{$index + 1}}</th>
+        <td>{{item.short_name}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+      </tr>
+    </tbody>
+</table>

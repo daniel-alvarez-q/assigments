@@ -1,7 +1,20 @@
-<ol>
-    <li ng-repeat="category in $ctrl.catList">
-        {{category.short_name}}
-        <a ui-sref="items-view({shortName: category.short_name})">{{category.name}}</a>
-    </li>
-</ol>
-
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Short Name</th>
+        <th scope="col">Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="category in $ctrl.catList">
+        <th scope="row">{{$index +1}}</th>
+        <td>{{category.short_name}}</td>
+        <td>
+            <a ui-sref="items-view({shortName: category.short_name})">
+                {{category.name}}
+            </a>
+        </td>
+      </tr>
+    </tbody>
+</table>

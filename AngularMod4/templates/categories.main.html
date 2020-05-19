@@ -1,4 +1,12 @@
-<a ui-sref="home">Home</a> &lt; <span>Categories</span>
+<nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a ui-sref="home">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Categories</li>
+</ol>
+</nav>
+  
+
 
 <h3>The following list contains all available categories</h3>
+<br>
 <categories cat-list= "CatCtrl.getItems"></categories>
