@@ -1,8 +1,7 @@
-This is the categories component
-
-<ul>
+<ol>
     <li ng-repeat="category in $ctrl.catList">
-        {{category.name}}
+        {{category.short_name}}
+        <a ui-sref="items-view({shortName: category.short_name})">{{category.name}}</a>
     </li>
-</ul>
+</ol>
 

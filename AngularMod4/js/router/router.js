@@ -19,5 +19,14 @@ function RoutesConfig($stateProvider, $urlRouterProvider){
         templateUrl: 'templates/categories.main.html',
         controller: 'CategoriesController as CatCtrl'
     })
+
+    .state('items-view', {
+        url:'/items/{shortName}',
+        templateUrl:'templates/items.main.html',
+        controller: 'ItemsController as ItemsCtrl',
+        params:{
+            shortName: null,
+        }
+    })
 }
 })();
