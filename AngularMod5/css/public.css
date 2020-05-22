@@ -124,6 +124,37 @@ h3.menu-item-title {
   padding-left: 0px;
 }
 
+/* END SIGNUP FORM */
+
+/* USER DETAILS */
+
+.user-details {
+  border: 1px solid #C6C6C6;
+  height: 300px;
+  box-shadow: 1px 1px 10px #909090;
+  position: relative;
+}
+
+.user-details .title{
+  position: absolute;
+  top: 70px;
+  left: 20px;
+}
+
+.user-details .email{
+  position: absolute;
+  top: 120px;
+  left:20px;
+}
+
+.user-details .phone{
+  position: absolute;
+  top: 140px;
+  left:20px;
+}
+
+/* END USER DETAILS */
+
 /********** Large devices only **********/
 @media (min-width: 1200px) {
   .container .jumbotron {

@@ -4,11 +4,12 @@
 angular.module('public').component('signupForm', {
     templateUrl: 'src/public/signup-form/signup-form.html',
     controller: formController,
+    bindings:{
+        storeUser : '&',
+    }
 });
 
-formController.$inject = ['UserSubscriptionService'];
-
-function formController (UserSubscriptionService){
+function formController (){
     var ctrl = this;
     var user = {};
     ctrl.signUp = function (){
@@ -17,8 +18,7 @@ function formController (UserSubscriptionService){
         user.email = ctrl.email;
         user.phone = ctrl.phone;
         user.menuNumber = ctrl.menuNumber;      
-        console.log("User data obtained from form: ", user);
-        UserSubscriptionService.createUser(user);
+        ctrl.storeUser({userModel: user});
     };
 }
 
