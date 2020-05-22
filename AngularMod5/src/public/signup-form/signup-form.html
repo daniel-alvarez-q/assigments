@@ -1,22 +1,22 @@
 <div class="col-sm-6">
-    <form>
+    <form name="signForm" novalidate>
         <div class="form-group">
-            <label for="inputFirstName">First Name</label>
-            <input type="text" class="form-control" id="inputFirstName" aria-describedby="firstName">
+            <label>First Name</label>
+            <input type="text" class="form-control" name="FirstName" ng-model="$ctrl.firstName" required>
         </div>
         <div class="form-group">
-            <label for="inputLastName"> Last Name</label>
-            <input type="text" class="form-control" id="inputLastName" aria-describedby="lastName">
+            <label>Last Name</label>
+            <input type="text" class="form-control" name="LastName" ng-model="$ctrl.lastName" required>
         </div>
         <div class="form-group">
-          <label for="InputEmail1">Email address</label>
-          <input type="email" class="form-control" id="InputEmail1" aria-describedby="email">
+          <label>Email address</label>
+          <input type="email" class="form-control" name="Email" ng-model="$ctrl.email" required>
         </div>
         <div class="form-group">
-          <label for="InputPhone">Phone Number</label>
-          <input type="text" class="form-control" id="InputPhone">
+          <label>Phone Number</label>
+          <input type="text" class="form-control" name="Phone" ng-model="$ctrl.phone" required>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" ng-click="$ctrl.signUp();" ng-disabled="signForm.$invalid">Submit</button>
     </form>
 </div>
 
