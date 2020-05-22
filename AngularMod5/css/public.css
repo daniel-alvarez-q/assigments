@@ -114,6 +114,16 @@ h3.menu-item-title {
 /* END SINGLE CATEGORY PAGE */
 
 
+/* SIGNUP FORM */
+
+#form-row .form-group:nth-child(even){
+  padding-right: 0px;
+}
+
+#form-row .form-group:nth-child(odd){
+  padding-left: 0px;
+}
+
 /********** Large devices only **********/
 @media (min-width: 1200px) {
   .container .jumbotron {

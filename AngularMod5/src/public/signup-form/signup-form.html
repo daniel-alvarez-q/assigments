@@ -12,9 +12,15 @@
           <label>Email address</label>
           <input type="email" class="form-control" name="Email" ng-model="$ctrl.email" required>
         </div>
-        <div class="form-group">
-          <label>Phone Number</label>
-          <input type="text" class="form-control" name="Phone" ng-model="$ctrl.phone" required>
+        <div class="form-row" id="form-row">
+          <div class="form-group col-sm-6">
+            <label>Phone Number</label>
+            <input type="text" class="form-control" name="Phone" ng-model="$ctrl.phone" required>
+          </div>
+          <div class="form-group col-sm-6">
+            <label>Menu Numbeer</label>
+            <input type="text" class="form-control" name="Phone" ng-model="$ctrl.menuNumber" required>
+          </div>
         </div>
         <button type="submit" class="btn btn-primary" ng-click="$ctrl.signUp();" ng-disabled="signForm.$invalid">Submit</button>
     </form>
