@@ -27,14 +27,17 @@ function MenuService($http, ApiPath) {
     });
   };
 
-  service.getSingleMenuItems = function (item) {
+  service.getSingleMenuItems = function (item) { 
+    console.log(item);
     var config = {};
-    if(item){
-      config.params = {'item': item};
+    if (item) {
+      config.params = {'category': item};
     }
 
-    return $http.get(ApiPath + '/menu_items/' + config.item + '.json').then(function(response){
+    return $http.get(ApiPath + '/menu_items/' + item + '.json').then(function(response){
       return response.data;
+    }).catch(function (error){
+      console,log('Error happened, check it out ', error);
     });
   }
 

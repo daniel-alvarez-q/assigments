@@ -3,13 +3,19 @@
 
 angular.module('public').controller('SignUpController', SignUpController);
 
-SignUpController.$inject = ['UserSubscriptionService'];
+SignUpController.$inject = ['UserSubscriptionService', 'MenuService'];
 
-function SignUpController (UserSubscriptionService){
+function SignUpController (UserSubscriptionService, MenuService){
     var ctrl = this;
 
     ctrl.saveUser = function (userModel){
         UserSubscriptionService.createUser(userModel);
+    }
+
+    ctrl.retrieveItem = function (shortName){
+        var response = MenuService.getSingleMenuItems(shortName);
+        console.log('this is response at signUp controller ', response);
+        return response;
     }
 }
 
