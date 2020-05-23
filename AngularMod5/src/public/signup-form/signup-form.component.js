@@ -24,9 +24,13 @@ function formController (){
     };
 
     ctrl.retrieveMenuItem = function (){
-         ctrl.retrieveItem({shortName: ctrl.menuNumber}).then(function (response){
+         ctrl.retrieveItem({shortName: ctrl.menuNumber.toUpperCase()}).then(function (response){
             console.log('Data at form view controller ', response);
-            ctrl.menu_item = response;
+            if(response.status == 500){
+                ctrl.menu_item = 'Error! Menu element does not exist' 
+            }else{
+                ctrl.menu_item = response;;
+            }
          })
          
     }

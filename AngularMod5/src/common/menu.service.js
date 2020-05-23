@@ -37,7 +37,8 @@ function MenuService($http, ApiPath) {
     return $http.get(ApiPath + '/menu_items/' + item + '.json').then(function(response){
       return response.data;
     }).catch(function (error){
-      console,log('Error happened, check it out ', error);
+      console.log('Error retrieving data from server', error);
+      return error.data
     });
   }
 
