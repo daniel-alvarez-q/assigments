@@ -15,7 +15,6 @@ function MenuDataService ($http){
         }).then(function(response){
             return response.data;
         });
-
         return promise;
     }
 
