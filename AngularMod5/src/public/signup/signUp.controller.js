@@ -14,7 +14,6 @@ function SignUpController (UserSubscriptionService, MenuService){
 
     ctrl.retrieveItem = function (shortName){
         var response = MenuService.getSingleMenuItems(shortName);
-        console.log('this is response at signUp controller ', response);
         return response;
     }
 }
