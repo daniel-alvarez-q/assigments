@@ -4,19 +4,33 @@
 angular.module('public').component('showUser', {
     templateUrl: 'src/public/user-view/userDetails.html',
     bindings:{
-        userModel : '<'
+        userModel : '<',
+        retrieveItem: '&'
     },
     controller : UserDetailsController,
 })
 
-function UserDetailsController(){
+UserDetailsController.$inject = ['ApiPath'];
+function UserDetailsController(ApiPath){
     var ctrl = this;
-
-    ctrl.$onInit = function(){
-        ctrl.userDetails = ctrl.userModel;
-        console.log(ctrl.userDetails);
+    ctrl.basePath = ApiPath;
+    ctrl.retrieveItem({i:ctrl.userModel.menuNumber}).then(function (response){
+        console.log(response);
+        ctrl.menuItem = response;
+    });
+    ctrl.registeredUser = function (){
+        if (angular.equals(ctrl.userModel, {})){
+            ctrl.warning = true;
+            return false;
+        }else{
+            ctrl.warning = false;
+            return true;
+        }
     }
+
+
+
     
 }
 
-})();
+})(); 

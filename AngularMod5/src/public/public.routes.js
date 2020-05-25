@@ -51,7 +51,7 @@ function routeConfig ($stateProvider) {
       url: '/users/info',
       templateUrl: 'src/public/users/userInfo.html',
       controller: 'UserViewController',
-      controllerAs: 'UserViewCtrl'
+      controllerAs: 'UserViewCtrl',
     });
 }
 })();

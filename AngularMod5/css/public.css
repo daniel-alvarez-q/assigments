@@ -124,6 +124,20 @@ h3.menu-item-title {
   padding-left: 0px;
 }
 
+.form-error{
+  color:red;
+  font-size: 1.1rem;
+  margin: 2px 0 0 0;
+}
+
+.user-registration{
+  border: 1px solid #C6C6C6;
+  height: 300px;
+  box-shadow: 1px 1px 10px #909090;
+  position: relative;
+  padding: 10px;
+}
+
 /* END SIGNUP FORM */
 
 /* USER DETAILS */
@@ -151,6 +165,25 @@ h3.menu-item-title {
   position: absolute;
   top: 140px;
   left:20px;
+}
+
+.user-details .menu-selection{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: 1px solid #C6C6C6;
+  height: 260px;
+  width: 400px;
+  padding: 10px;
+  overflow: scroll;
+}
+
+.menu-selection .selection-text{
+  text-align: center;
+}
+
+.menu-selection .selection-image{
+  margin-left: 70px;
 }
 
 /* END USER DETAILS */

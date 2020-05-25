@@ -18,7 +18,7 @@ function UserSubscriptionService (){
         console.log("Created user: ", modelUser);
     }
 
-    uss.returnUser = function (){
+    uss.returnUser = function (){ 
         return modelUser;
     }
 }

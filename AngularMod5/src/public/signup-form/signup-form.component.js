@@ -14,45 +14,39 @@ formController.$inject = ['$rootScope'];
 
 function formController ($rootScope){
     var ctrl = this;
-    var user = {};
-    var itemStatus;
+    ctrl.user = {};
+    ctrl.warning, ctrl.success = false;
+
     ctrl.signUp = function (){
         ctrl.retrieveItem({shortName: ctrl.menuNumber.toUpperCase()}).then(function (response){
             if(response.status == 500){
-                ctrl.menu_item = 'Error! Menu element does not exist' 
+                ctrl.warning = true;
+                ctrl.success = false
             }else{
-                user.firstName = ctrl.firstName;
-                user.lastName = ctrl.lastName;
-                user.email = ctrl.email;
-                user.phone = ctrl.phone;
-                user.menuNumber = ctrl.menuNumber;   
-                ctrl.menu_item = ctrl.retrieveItem({shortName: ctrl.menuNumber.toUpperCase()}) 
-                ctrl.storeUser({userModel: user});
+                ctrl.user.firstName = ctrl.firstName;
+                ctrl.user.lastName = ctrl.lastName;
+                ctrl.user.email = ctrl.email;
+                ctrl.user.phone = ctrl.phone;
+                ctrl.user.menuNumber = ctrl.menuNumber.toUpperCase();   
+                ctrl.storeUser({userModel: ctrl.user});
+                ctrl.warning = false;
+                ctrl.success = true;
             }
          })
     };
 
-    ctrl.retrieveMenuItem = function (){
-         ctrl.retrieveItem({shortName: ctrl.menuNumber.toUpperCase()}).then(function (response){
-            if(response.status == 500){
-                ctrl.menu_item = 'Error! Menu element does not exist' 
-            }else{
-                ctrl.menu_item = response;
-            }
-         })
-         
-    }
+    /*Event for menu item retrieval process*/
 
-    $rootScope.$on('MenuService:menuItemSearch', function(event, data){
-        if(data.response === false){
-            console.log('Failure was catched successfully', event)
-            itemStatus = false;
-        };
-        if(data.response === true){
-            console.log('Success was catched correctly', event)
-            itemStatus = true;
-        };
-    })
+    // $rootScope.$on('MenuService:menuItemSearch', function(event, data){
+    //     if(data.response === false){
+    //         console.log('Failure was catched successfully', event)
+    //         itemStatus = false;
+    //     };
+    //     if(data.response === true){
+    //         console.log('Success was catched correctly', event)
+    //         itemStatus = true;
+    //     };
+    // })
 }
 
 })();
