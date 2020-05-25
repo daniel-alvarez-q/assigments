@@ -19,6 +19,9 @@
                     <img class="img-responsive selection-image" width="250" height="150" ng-src="{{$ctrl.basePath}}/images/{{$ctrl.menuItem.short_name}}.jpg" alt="{{$ctrl.menuItem.name}}">
                 </div>
             </div>
+            <h3 id="warning" ng-if="$ctrl.warning">
+                No user has been registered! Please click <a href="" ui-sref="public.signup">here</a> to register.
+            </h3>
         </div>
     </div>
 </div>

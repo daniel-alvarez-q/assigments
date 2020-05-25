@@ -37,7 +37,6 @@ function MenuService($http, ApiPath, $rootScope) {
       $rootScope.$broadcast('MenuService:menuItemSearch', {response:true});
       return response.data;
     }).catch(function (error){
-        console.log('Error retrieving data from server', error);
         $rootScope.$broadcast('MenuService:menuItemSearch', {response:false});
         return error.data
     });

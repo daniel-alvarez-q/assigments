@@ -2,20 +2,20 @@
     <form name="signForm" novalidate>
         <div class="form-group">
             <label>First Name</label>
-            <input type="text" class="form-control" name="FirstName" ng-model="$ctrl.firstName" required>
+            <input type="text" class="form-control" name="firstName" ng-model="$ctrl.firstName" required>
         </div>
         <div class="form-group">
             <label>Last Name</label>
-            <input type="text" class="form-control" name="LastName" ng-model="$ctrl.lastName" required>
+            <input type="text" class="form-control" name="lastName" ng-model="$ctrl.lastName" required>
         </div>
         <div class="form-group">
           <label>Email address</label>
-          <input type="email" class="form-control" name="Email" ng-model="$ctrl.email" required>
+          <input type="email" class="form-control" name="email" ng-model="$ctrl.email" required>
         </div>
         <div class="form-row" id="form-row">
           <div class="form-group col-sm-6">
             <label>Phone Number</label>
-            <input type="text" class="form-control" name="Phone" ng-model="$ctrl.phone" required>
+            <input type="text" class="form-control" name="phone" ng-model="$ctrl.phone" minlenght="9" required>
           </div>
           <div class="form-group col-sm-6">
             <label>Menu Numbeer</label>
@@ -25,6 +25,7 @@
         </div>
         <button type="submit" class="btn btn-primary" ng-click="$ctrl.signUp();" ng-disabled="signForm.$invalid">Submit</button>
     </form>
+    
 </div>
 <div class="col-sm-6">
   <div class="user-registration" ng-if="$ctrl.success">
@@ -35,4 +36,5 @@
   </div>
 </div>
  
+
 

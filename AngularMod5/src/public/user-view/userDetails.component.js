@@ -14,8 +14,8 @@ UserDetailsController.$inject = ['ApiPath'];
 function UserDetailsController(ApiPath){
     var ctrl = this;
     ctrl.basePath = ApiPath;
+    ctrl.warning = true;
     ctrl.retrieveItem({i:ctrl.userModel.menuNumber}).then(function (response){
-        console.log(response);
         ctrl.menuItem = response;
     });
     ctrl.registeredUser = function (){

@@ -186,6 +186,10 @@ h3.menu-item-title {
   margin-left: 70px;
 }
 
+#warning{
+  text-align: center;
+}
+
 /* END USER DETAILS */
 
 /********** Large devices only **********/
